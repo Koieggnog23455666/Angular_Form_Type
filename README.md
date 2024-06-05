@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+In this Angular Form there are two types of form 
+Reactive Form:It provides model-driven approaches
+Template Driven Form:It isare a way to create forms using Angular's directives in the template (HTML) with minimal coding in the component class.
+
