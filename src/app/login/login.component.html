@@ -1,0 +1,127 @@
+<div class=" reg" style="background-color: #FDF5DF;">
+  <!-- Pills navs -->
+<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+  <li class="nav-item " role="presentation" [ngClass]="{'active-tab': activeTab === 'login'}" (click)="setActiveTab('login')">
+    <a class="head" id="tab-login"  
+      aria-controls="pills-login" >Login</a>
+  </li>
+  <li class="nav-item " role="presentation" [ngClass]="{'active-tab': activeTab === 'register'}" (click)="inActiveTab('register')">
+    <a class="head" id="tab-register" data-mdb-pill-init  role="tab" 
+      aria-controls="pills-register" aria-selected="false" >Register</a>
+  </li>
+</ul>
+
+  <!-- Pills navs -->
+  
+  <!-- Pills content -->
+  <div class="  line1" >
+    <div class="text-center mb-5" ><h1 *ngIf="!showRegister">WELCOME AGAIN BUDDY</h1></div>
+    <div class="text-center " ><h1 *ngIf="showRegister">HELLO BUDDY</h1></div>
+    <div class="tab-content ">
+      <div   *ngIf="!showRegister">
+        <form #loginForm="ngForm">
+    
+        <div ngModelGroup="userData">
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <label class="form-label" for="loginName">Email or username</label>
+              <input type="email" id="loginName" class="form-control"name="email"  ngModel  required/>
+              <span *ngIf="loginForm.invalid &&(loginForm.dirty || loginForm.touched)">
+                <small class="text-danger" *ngIf="loginForm.controls['email'].errors?.['required']">Email is required</small>
+              
+              </span>
+  
+            </div>
+      
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <label class="form-label" for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" class="form-control" name="pass" ngModel/>
+              
+            </div>
+      
+        </div>
+    
+          <!-- Submit button -->
+          <div class=" d-flex justify-content-center">
+
+            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-2" >Sign in</button>
+          </div>
+          
+    
+          <!-- Register buttons -->
+          <div class="text-center">
+            <p>Not a member? <a routerLink="sign-up"  (click)="openRegister()">Register</a></p>
+          </div>
+        </form>
+      </div>
+  
+  
+      <div  *ngIf="showRegister" >
+        <form [formGroup]="login" >
+          <!-- Name input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <label class="form-label" for="registerName">Name</label>
+            <input type="text" id="registerName" class="form-control" formControlName="name"/>
+            <span *ngIf="login.get('name')?.invalid && (login.get('name')?.touched || login.get('name')?.dirty)" class="validError">
+              
+              <span *ngIf="login.get('name')?.errors?.['pattern']"> Enter a valid name </span>
+
+          </span>
+          </div>
+    
+          <!-- Username input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <label class="form-label" for="registerUsername">Username</label>
+            <input type="text" id="registerUsername" class="form-control"  formControlName="username" placeholder="krishna123" />
+            <span *ngIf="login.get('username')?.invalid && (login.get('username')?.touched || login.get('username')?.dirty)" class="validError">
+              
+              <span *ngIf="login.get('username')?.errors?.['pattern']"> Enter a valid name Like "JohnDoe123"</span>
+              <span *ngIf="login.get('username')?.errors?.['nameNotAllowed']"> Not allowed</span>
+          </span>
+          </div>
+    
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <label class="form-label" for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" class="form-control"  formControlName="email"/>
+            <span *ngIf="login.get('email')?.invalid  && login.get('email')?.touched " class="validError">Enter a valid Email</span>
+            
+          </div>
+    
+          <!-- Password input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <label class="form-label" for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" class="form-control" formControlName="password"/>
+            <button (click)="addFormControl()">Add Form Control</button>
+          </div>
+    
+          <!-- Repeat Password input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+            <input type="password" id="registerRepeatPassword" class="form-control" formControlName="confirmPassword" />
+          </div>
+         <span *ngIf="login.get('confirmPassword')?.invalid && (login.get('confirmPassword')?.touched || login.get('confirmPassword')?.dirty)">
+          <div *ngIf="login.errors?.['mismatch']" class="d-flex justify-content-center">
+            Passwords do not match.
+          </div></span>
+        
+    
+          <!-- Checkbox -->
+          <div class="form-check d-flex justify-content-center">
+           <span>Already a member?</span>
+           <a (click)="openLogin()">Login</a>
+          </div>
+    
+          <!-- Submit button -->
+          <div class=" d-flex justify-content-center">
+
+            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block " (click)="submit(login)">Sign in</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Pills content -->
+</div>

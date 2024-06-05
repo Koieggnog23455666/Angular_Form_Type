@@ -1,0 +1,32 @@
+<div class="head">
+  <h1>Template Driven Form</h1>
+  <div class="m-4 ">
+    <div class="col-4 main">
+      <form #form="ngForm" > 
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" ngModel required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #email="ngModel" appCustomValidation="test1">
+          <small *ngIf="email.invalid && email.touched" style="color: red;"><small *ngIf="email.errors?.['pattern'] " style="color: red;">Enter valid Email</small>
+          <div *ngIf="email.errors?.['nameNotAllowed']">
+        Do not enter this name
+        </div>
+          
+          
+        </small>
+        
+      
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password" ngModel required #pass="ngModel">
+          <small *ngIf="pass.invalid && pass.touched" style="color: red;">Enter password</small>
+        </div>
+       
+       
+      </form>
+      <button  class="btn btn-primary" (click)="onSubmit(form)" [disabled]="form.invalid" >Submit</button>
+    </div>
+      
+  </div>
+  
+</div>

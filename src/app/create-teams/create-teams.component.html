@@ -1,0 +1,26 @@
+<div class="head">
+    <h1>Create Teams</h1>
+<div class="col-4 main">
+    <form [formGroup]="teamForm">
+    <div  >
+      <div class="form-group">
+        <label for="exampleInputEmail1">Team Name</label>
+        <input type="text" class="form-control" id="email" formControlName="teamName" placeholder="Enter Team Name"  >
+        
+      </div>
+      <div class="form-group " formArrayName="addPlayer">
+        <label for="exampleInputPassword1">Player</label>
+        <ng-container *ngFor="let player of teamForm.get('addPlayer')?.value;index as i" >
+          <input type="text" class="form-control m-3" id="exampleInputPassword1" formControlName="{{i}}"  name="addPlayer" placeholder="player {{i+1}}"   >
+          <button type="button" (click)="removePlayer(i)">Remove</button>
+        </ng-container>
+        <button class="btn btn-primary btn-sm m-3" (click)="addPlay()">Add Player</button>
+        
+      </div>
+    </div>
+        
+        <button type="submit" class="btn btn-primary col-4 main"  >Submit</button>
+      </form>
+</div>
+
+</div>

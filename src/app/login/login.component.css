@@ -1,0 +1,26 @@
+/* .showRegister,.register{
+    background-color: blue;
+} */
+.active-tab,.inactiveTab {
+    background-color: #f92c8554;
+    color: black  !important;
+  }
+  .head{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-weight: 900;
+    font-size: larger;
+  }
+  .tab-content{
+    display: flex;
+    justify-content: center;
+  }
+  .reg{
+    height: 90vh;
+  }
+  .line1{
+    color: #5EBEC4;
+    
+  }
