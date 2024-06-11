@@ -18,6 +18,8 @@ import { CustomValidationDirective } from './directives/custom-validation.direct
 import { CommonModule } from '@angular/common';
 import { firstName } from './directives/custom-reactive-validation.directive';
 import { CreateTeamsComponent } from './create-teams/create-teams.component';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { CreateTeamsComponent } from './create-teams/create-teams.component';
     LoginComponent,
     CustomValidationDirective,
     CreateTeamsComponent,
+    HomeComponent,
     
     
   ],
@@ -36,10 +39,10 @@ import { CreateTeamsComponent } from './create-teams/create-teams.component';
     AppRoutingModule,
     NgbModule,
     MatIconModule,FormsModule,
-    MatToolbarModule,MatButtonModule,ReactiveFormsModule,CommonModule
+    MatToolbarModule,MatButtonModule,ReactiveFormsModule,CommonModule,HttpClientModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })
